@@ -1697,7 +1697,13 @@ export default function IndicadorCalculadora() {
   }, [indicadorSeleccionado]);
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-r from-white-50 via-purple-100 to-purple-200 font-nunito">
+    <div className="flex flex-col min-h-screen bg-gradient-to-r from-white-50 via-purple-100 to-purple-200 font-nunito"
+      style={{
+        position: 'relative',
+        minHeight: '100vh',
+        zoom: 0.80,
+        minWidth: '1200px'
+      }}>
 
       {/* Header */}
       <header className="w-full bg-purple-800 overflow-hidden">
@@ -1710,8 +1716,8 @@ export default function IndicadorCalculadora() {
       </header>
 
       {/* Contenido principal */}
-      <div className="flex-1 w-full px-4 py-6">
-        <div className="mx-auto max-w-6xl space-y-8">
+      <div className={`flex-1 w-full px-4 ${indicadorSeleccionado === "Seleccionar" ? 'pb-0' : 'pb-6'}`}>
+      <div className="mx-auto max-w-6xl space-y-8">
           
           {/* Texto descriptivo */}
           <div 
@@ -1794,7 +1800,7 @@ export default function IndicadorCalculadora() {
           </Card>
 
           {indicadorSeleccionado !== "Seleccionar" && infoIndicadores[indicadorSeleccionado] && (
-            <div className="space-y-8">
+          <div className="space-y-8">
               {/* Tarjeta de Información General */}
               <Card 
   className="w-full p-6 shadow-xl rounded-xl transition-all duration-300 hover:shadow-2xl"
@@ -2231,13 +2237,13 @@ export default function IndicadorCalculadora() {
       </div>
 
       {/* Footer */}
-     <footer 
-  className="w-full text-white py-6 font-nunito"
-  style={{
-    backgroundColor: 'rgb(82, 37, 109)',
-    fontFamily: '"Nunito", sans-serif'
-  }}
->
+      <footer 
+      className={`w-full text-white py-6 font-nunito ${indicadorSeleccionado === "Seleccionar" ? 'fixed bottom-0' : 'relative mt-auto'}`}
+      style={{
+        backgroundColor: 'rgb(82, 37, 109)',
+        fontFamily: '"Nunito", sans-serif'
+      }}
+    >
   <div className="flex justify-center">
     <div className="max-w-7xl mx-auto px-6 w-full">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-5">
