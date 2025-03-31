@@ -1660,6 +1660,17 @@ Donde:
   }
 };
 
+const Header = () => {
+  return (
+    <header className="w-full bg-gradient-to-r from-purple-700 to-purple-900 py-4 shadow-md">
+      <div className="max-w-7xl mx-auto px-4 flex justify-center">
+        {/* Solo la imagen centrada */}
+        <img src="public/HEADER.svg" alt="HEADER" className="w-20 h-25" />
+      </div>
+    </header>
+  );
+};
+
 export default function IndicadorCalculadora() {
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("Caracterización");
   const [indicadorSeleccionado, setIndicadorSeleccionado] = useState("Seleccionar");
@@ -1668,7 +1679,7 @@ export default function IndicadorCalculadora() {
 
   const handleCategoriaChange = (categoria) => {
     setCategoriaSeleccionada(categoria);
-    setIndicadorSeleccionado("Seleccionar"); // Resetear el indicador al cambiar categoría
+    setIndicadorSeleccionado("Seleccionar");
     setIsOpen(false);
   };
 
@@ -1686,138 +1697,208 @@ export default function IndicadorCalculadora() {
   }, [indicadorSeleccionado]);
 
   return (
-    <div className="flex flex-col items-center space-y-6 p-8 bg-gradient-to-r from-purple-50 via-purple-100 to-purple-200 min-h-screen">
-      <div className="flex space-x-4 w-full">
-        {Object.keys(indicadores).map((categoria) => (
-          <Button
-            key={categoria}
-            onClick={() => handleCategoriaChange(categoria)}
-            className={`text-lg px-6 py-2 rounded-xl transition-all duration-300 transform hover:scale-105 ${
-              categoriaSeleccionada === categoria
-                ? "bg-gradient-to-r from-purple-500 to-purple-700 text-white shadow-lg"
-                : "bg-gray-300 hover:bg-gray-400"
-            } w-full`}
-          >
-            {categoria}
-          </Button>
-        ))}
-      </div>
-      
-      {/* Tarjeta de selección de indicador */}
-      <Card className="w-full max-w-6xl p-6 bg-white shadow-xl rounded-xl transition-all duration-300 hover:shadow-2xl">
-        <CardContent className="space-y-6">
-          <div className="flex flex-col space-y-4">
-            <div className="flex flex-col space-y-2">
-              <label className="font-medium text-gray-700">Seleccione el indicador</label>
-              <div className="relative" ref={selectRef}>
-                <div
-                  onClick={() => setIsOpen(!isOpen)}
-                  className={`p-3 rounded-xl border bg-gray-50 cursor-pointer focus:outline-none ${
-                    indicadorSeleccionado === "Seleccionar" ? "text-gray-400" : "text-gray-800"
-                  }`}
-                >
-                  {indicadorSeleccionado}
-                </div>
-                {isOpen && (
-                  <div className="absolute top-full mt-2 w-full bg-white border border-gray-300 rounded-xl shadow-lg z-10 max-h-96 overflow-y-auto">
-                    <div
-                      className="p-3 text-lg hover:bg-purple-100 cursor-pointer transition-colors"
-                      onClick={() => {
-                        setIndicadorSeleccionado("Seleccionar");
-                        setIsOpen(false);
-                      }}
-                    >
-                      Seleccionar
-                    </div>
-                    {indicadores[categoriaSeleccionada]?.lista.map((item, index) => (
-                      <div
-                        key={index}
-                        className="p-3 text-lg hover:bg-purple-100 cursor-pointer transition-colors"
-                        onClick={() => {
-                          setIndicadorSeleccionado(item.nombre);
-                          setIsOpen(false);
-                        }}
-                      >
-                        {item.nombre}
-                      </div>
-                    ))}                    
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
+    <div className="flex flex-col min-h-screen bg-gradient-to-r from-white-50 via-purple-100 to-purple-200 font-nunito">
 
-      {indicadorSeleccionado !== "Seleccionar" && infoIndicadores[indicadorSeleccionado] && (
-        <div className="w-full max-w-6xl space-y-6">
-          {/* Tarjeta de Información General */}
+      {/* Header */}
+      <header className="w-full bg-purple-800 overflow-hidden">
+        <img 
+          src="/HEADER.svg" 
+          alt="Encabezado completo" 
+          className="w-full h-auto object-cover min-h-[120px]" 
+          style={{ objectPosition: 'center top' }}
+        />
+      </header>
+
+      {/* Contenido principal */}
+      <div className="flex-1 w-full px-4 py-6">
+        <div className="mx-auto max-w-6xl space-y-8">
+          
+          {/* Texto descriptivo */}
+          <div 
+            className="p-6 bg-white rounded-xl shadow-md text-center"
+            style={{
+              border: '1px solid rgb(224, 224, 224)',
+              color: 'rgb(82, 37, 109)',
+              fontSize: '1.125rem',
+              lineHeight: '1.75rem'
+            }}
+          >
+            <p>
+              Los metadatos de los indicadores DyVBG presentan la información contenida en las fichas técnicas de cada indicador relacionado con la discriminación y las violencias basadas en género (DyVBG) en las Instituciones de Educación Superior (IES), incluyendo sus definiciones, variables, fórmulas y criterios de evaluación.
+            </p>
+          </div>
+
+          {/* Fila de botones */}
+          <div className="flex space-x-4 w-full">
+            {Object.keys(indicadores).map((categoria) => (
+              <Button
+                key={categoria}
+                onClick={() => handleCategoriaChange(categoria)}
+                style={{
+                  backgroundColor: categoriaSeleccionada === categoria ? 'rgb(82, 37, 109)' : 'rgba(82, 37, 109, 0.7)',
+                  color: 'white',
+                  border: 'none',
+                  boxShadow: categoriaSeleccionada === categoria ? '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' : 'none'
+                }}
+                className="text-lg px-6 py-2 rounded-xl transition-all duration-300 w-full hover:opacity-100"
+              >
+                {categoria}
+              </Button>
+            ))}
+          </div>
+          
+          {/* Tarjeta de selección de indicador */}
           <Card className="w-full p-6 bg-white shadow-xl rounded-xl transition-all duration-300 hover:shadow-2xl">
-            <CardContent>
-              <div className="p-4 border rounded-xl border-purple-500">
-                <div className="text-center font-semibold text-white py-2 bg-purple-700 rounded-xl">
-                  Información general
-                </div>
-                <div className="grid grid-cols-2 gap-4 text-gray-700 text-lg p-4">
-                  <span className="font-semibold">Nombre:</span> <span>{infoIndicadores[indicadorSeleccionado].nombre}</span>
-                  <span className="font-semibold">Categoría:</span> <span>{infoIndicadores[indicadorSeleccionado].categoria}</span>
-                  <span className="font-semibold">Tipología:</span> <span>{infoIndicadores[indicadorSeleccionado].tipologia}</span>
-                  <span className="font-semibold">Nivel:</span> <span>{infoIndicadores[indicadorSeleccionado].nivel}</span>
-                  <span className="font-semibold">Fecha de Creación:</span> <span>{infoIndicadores[indicadorSeleccionado].fechaCreacion}</span>
-                  <span className="font-semibold">Última Actualización:</span> <span>{infoIndicadores[indicadorSeleccionado].ultimaActualizacion}</span>
-                  <span className="font-semibold">Dependencia productora de información:</span> <span>{infoIndicadores[indicadorSeleccionado].dependencia}</span>
-                  <span className="font-semibold">Factores que pueden afectar el indicador:</span> <span>{infoIndicadores[indicadorSeleccionado].factores}</span>
+            <CardContent className="space-y-6">
+              <div className="flex flex-col space-y-4">
+                <div className="flex flex-col space-y-2">
+                  <label className="font-medium text-gray-700">Seleccione el indicador</label>
+                  <div className="relative" ref={selectRef}>
+                    <div
+                      onClick={() => setIsOpen(!isOpen)}
+                      className={`p-3 rounded-xl border bg-gray-50 cursor-pointer focus:outline-none ${
+                        indicadorSeleccionado === "Seleccionar" ? "text-gray-400" : "text-gray-800"
+                      }`}
+                    >
+                      {indicadorSeleccionado}
+                    </div>
+                    {isOpen && (
+                      <div className="absolute top-full mt-2 w-full bg-white border border-gray-300 rounded-xl shadow-lg z-10 max-h-96 overflow-y-auto">
+                        <div
+                          className="p-3 text-lg hover:bg-purple-100 cursor-pointer transition-colors"
+                          onClick={() => {
+                            setIndicadorSeleccionado("Seleccionar");
+                            setIsOpen(false);
+                          }}
+                        >
+                          Seleccionar
+                        </div>
+                        {indicadores[categoriaSeleccionada]?.lista.map((item, index) => (
+                          <div
+                            key={index}
+                            className="p-3 text-lg hover:bg-purple-100 cursor-pointer transition-colors"
+                            onClick={() => {
+                              setIndicadorSeleccionado(item.nombre);
+                              setIsOpen(false);
+                            }}
+                          >
+                            {item.nombre}
+                          </div>
+                        ))}                    
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             </CardContent>
           </Card>
-          <Card className="w-200 p-6 bg-white shadow-xl rounded-xl transition-all duration-300 hover:shadow-2xl">
+
+          {indicadorSeleccionado !== "Seleccionar" && infoIndicadores[indicadorSeleccionado] && (
+            <div className="space-y-8">
+              {/* Tarjeta de Información General */}
+              <Card 
+  className="w-full p-6 shadow-xl rounded-xl transition-all duration-300 hover:shadow-2xl"
+  style={{ 
+    backgroundColor: 'rgb(82, 37, 109)',
+    border: '1px solid #e5e7eb' // gray-300
+  }}
+>
   <CardContent>
-    <div className="p-4 border rounded-xl border-purple-500">
-      <div className="text-center font-semibold text-white py-2 bg-purple-700 rounded-xl mb-4">
+    <div 
+      className="p-4 rounded-xl"
+      style={{
+        border: '1px solid #e5e7eb',
+        backgroundColor: 'white'
+      }}
+    >
+      <div 
+        className="text-center font-semibold text-white py-2 rounded-xl"
+        style={{ backgroundColor: 'rgb(82, 37, 109)' }}
+      >
+        Información general
+      </div>
+      <div className="grid grid-cols-2 gap-4 text-gray-700 text-lg p-4">
+        <span className="font-semibold">Nombre:</span> <span>{infoIndicadores[indicadorSeleccionado].nombre}</span>
+        <span className="font-semibold">Categoría:</span> <span>{infoIndicadores[indicadorSeleccionado].categoria}</span>
+        <span className="font-semibold">Tipología:</span> <span>{infoIndicadores[indicadorSeleccionado].tipologia}</span>
+        <span className="font-semibold">Nivel:</span> <span>{infoIndicadores[indicadorSeleccionado].nivel}</span>
+        <span className="font-semibold">Fecha de Creación:</span> <span>{infoIndicadores[indicadorSeleccionado].fechaCreacion}</span>
+        <span className="font-semibold">Última Actualización:</span> <span>{infoIndicadores[indicadorSeleccionado].ultimaActualizacion}</span>
+        <span className="font-semibold">Dependencia productora de información:</span> <span>{infoIndicadores[indicadorSeleccionado].dependencia}</span>
+        <span className="font-semibold">Factores que pueden afectar el indicador:</span> <span>{infoIndicadores[indicadorSeleccionado].factores}</span>
+      </div>
+    </div>
+  </CardContent>
+</Card>
+
+              {/* Definición y justificación */}
+              <Card 
+  className="w-full p-6 shadow-xl rounded-xl transition-all duration-300 hover:shadow-2xl"
+  style={{
+    backgroundColor: 'rgb(82, 37, 109)',
+    border: '1px solid #d1d5db' // gray-300
+  }}
+>
+  <CardContent>
+    <div 
+      className="p-4 rounded-xl"
+      style={{
+        backgroundColor: 'white',
+        border: '1px solid #d1d5db' // gray-300
+      }}
+    >
+      <div 
+        className="text-center font-semibold py-2 rounded-xl mb-4"
+        style={{
+          backgroundColor: 'rgb(82, 37, 109)',
+          color: 'white'
+        }}
+      >
         Definición y justificación
       </div>
       
-      <div className="grid grid-cols-5 gap-x-6 text-gray-700 text-lg ">
-        {/* Columna de Títulos*/}
+      <div 
+        className="grid grid-cols-5 gap-x-6 text-lg"
+        style={{ color: '#374151' }} // gray-700
+      >
+        {/* Columna de títulos */}
         <div className="col-span-1 grid grid-rows-7 gap-6">
-          {[
-            "Definición",
-            "Objetivo", 
-            "Relevancia",
-            "Preguntas orientadoras"
-          ].map((title, index) => (
+          {["Definición", "Objetivo", "Relevancia", "Preguntas orientadoras"].map((title, index) => (
             <h3 
               key={index}
-              className="font-semibold text-black flex items-center justify-end pr-4 text-right h-full border-b border-purple-100 py-4"
+              className="font-semibold flex items-center justify-end pr-4 text-right h-full py-4"
+              style={{
+                color: 'black',
+                borderBottom: '1px solid #e5e7eb' // gray-200
+              }}
             >
               {title}
             </h3>
           ))}
         </div>
         
-        {/* Columna de Contenido*/}
-        <div className="col-span-4 grid grid-rows-4 gap-6 ">
+        {/* Columna de contenido */}
+        <div className="col-span-4 grid grid-rows-4 gap-6">
           {[
-            {
-              content: infoIndicadores[indicadorSeleccionado].Definición,
-              minHeight: "min-h-[50px]"
+            { 
+              content: infoIndicadores[indicadorSeleccionado].Definición, 
+              minHeight: "min-h-[50px]" 
             },
-            {
-              content: infoIndicadores[indicadorSeleccionado].objetivo,
-              minHeight: "min-h-[50px]"
+            { 
+              content: infoIndicadores[indicadorSeleccionado].objetivo, 
+              minHeight: "min-h-[50px]" 
             },
-            {
-              content: infoIndicadores[indicadorSeleccionado].relevancia,
-              minHeight: "min-h-[50px]"
+            { 
+              content: infoIndicadores[indicadorSeleccionado].relevancia, 
+              minHeight: "min-h-[50px]" 
             },
-            {
+            { 
               content: infoIndicadores[indicadorSeleccionado].preguntas_orientadoras && (
                 <ul className="space-y-3 list-disc pl-5">
                   {Object.values(infoIndicadores[indicadorSeleccionado].preguntas_orientadoras)
                     .filter(p => p)
                     .map((pregunta, i) => (
-                      <li key={i} className="text-gray-800">{pregunta}</li>
+                      <li key={i} style={{ color: '#1f2937' }}>{pregunta}</li> // gray-800
                   ))}
                 </ul>
               ),
@@ -1826,9 +1907,14 @@ export default function IndicadorCalculadora() {
           ].map((section, index) => (
             <div 
               key={index}
-              className={`bg-gray-50 p-4 rounded-lg border border-gray-200 ${section.minHeight} flex items-center w-full border-b border-purple-100`}
+              className={`p-4 rounded-lg flex items-center w-full ${section.minHeight}`}
+              style={{
+                backgroundColor: '#f9fafb', // gray-50
+                border: '1px solid #e5e7eb', // gray-200
+                color: '#1f2937' // gray-800
+              }}
             >
-              <div className="text-gray-800 whitespace-pre-wrap w-full">
+              <div className="whitespace-pre-wrap w-full">
                 {section.content}
               </div>
             </div>
@@ -1838,23 +1924,38 @@ export default function IndicadorCalculadora() {
     </div>
   </CardContent>
 </Card>
-{/* Fórmula y Método de Cálculo */}
-<Card className="w-full p-4 bg-white shadow-xl rounded-xl transition-all duration-300 hover:shadow-2xl">
+
+              {/* Fórmula y método de cálculo */}
+              <Card 
+  className="w-full p-4 shadow-xl rounded-xl transition-all duration-300 hover:shadow-2xl"
+  style={{
+    backgroundColor: 'rgb(82, 37, 109)',
+    border: '1px solid #d1d5db' // gray-300
+  }}
+>
   <CardContent>
-    <div className="p-3 border rounded-xl border-purple-500">
-      <div className="text-center font-semibold text-white py-2 bg-purple-700 rounded-xl mb-3 text-lg">
+    <div 
+      className="p-3 rounded-xl"
+      style={{
+        backgroundColor: 'white',
+        border: '1px solid #d1d5db' // gray-300
+      }}
+    >
+      <div 
+        className="text-center font-semibold py-2 rounded-xl mb-3 text-lg"
+        style={{
+          backgroundColor: 'rgb(82, 37, 109)',
+          color: 'white'
+        }}
+      >
         Fórmula y método de cálculo
       </div>
 
-      {/* Grid principal con 5 filas (una por cada concepto) */}
       <div className="grid grid-rows-2 gap-y-3">
         {[
-          {
-            title: "Fórmula",
-            content: infoIndicadores[indicadorSeleccionado].Fórmula
-          },
-          {
-            title: "Variables utilizadas",
+          { title: "Fórmula", content: infoIndicadores[indicadorSeleccionado].Fórmula },
+          { 
+            title: "Variables utilizadas", 
             content: Array.isArray(infoIndicadores[indicadorSeleccionado].Variables_utilizadas) 
               ? infoIndicadores[indicadorSeleccionado].Variables_utilizadas.join("\n")
               : infoIndicadores[indicadorSeleccionado].Variables_utilizadas
@@ -1865,33 +1966,35 @@ export default function IndicadorCalculadora() {
               ? infoIndicadores[indicadorSeleccionado].Fuente_de_datos.join("\n")
               : infoIndicadores[indicadorSeleccionado].Fuente_de_datos
           },
-          {
-            title: "Frecuencia de medición",
-            content: infoIndicadores[indicadorSeleccionado].frecuencia_de_medición
-          },
-          {
-            title: "Unidad de medida",
-            content: infoIndicadores[indicadorSeleccionado].unidad_de_medida
-          }
+          { title: "Frecuencia de medición", content: infoIndicadores[indicadorSeleccionado].frecuencia_de_medición },
+          { title: "Unidad de medida", content: infoIndicadores[indicadorSeleccionado].unidad_de_medida }
         ].map((item, index) => (
           <div key={index} className="grid grid-cols-5 gap-x-4 h-full">
-            {/* Columna de título */}
             <div className="col-span-1 flex items-start">
-              <h3 className="font-semibold text-black text-right pr-2 w-full">
+              <h3 
+                className="font-semibold text-right pr-2 w-full"
+                style={{ color: 'black' }}
+              >
                 {item.title}
               </h3>
             </div>
-            
-            {/* Columna de contenido */}
             <div className="col-span-4 flex items-start">
-              <div className="bg-gray-50 p-3 rounded-lg border border-gray-200 w-full">
-                <div className="text-gray-800 whitespace-pre-wrap">
+              <div 
+                className="p-3 rounded-lg w-full"
+                style={{
+                  backgroundColor: '#f9fafb', // gray-50
+                  border: '1px solid #e5e7eb' // gray-200
+                }}
+              >
+                <div style={{ color: '#1f2937' }}> {/* gray-800 */}
                   {typeof item.content === 'string' ? (
                     item.content
                   ) : (
                     <ul className="list-disc pl-4">
                       {item.content.map((text, i) => (
-                        <li key={i} className="mb-1 last:mb-0">{text}</li>
+                        <li key={i} className="mb-1 last:mb-0" style={{ color: '#1f2937' }}>
+                          {text}
+                        </li>
                       ))}
                     </ul>
                   )}
@@ -1905,51 +2008,86 @@ export default function IndicadorCalculadora() {
   </CardContent>
 </Card>
 
-
-{/* Uso y aplicación del indicador*/}
-<Card className="w-full p-6 bg-white shadow-xl rounded-xl transition-all duration-300 hover:shadow-2xl">
+              {/* Parámetros y estándares de evaluación */}
+              <Card 
+  className="w-full p-6 shadow-xl rounded-xl transition-all duration-300 hover:shadow-2xl font-nunito"
+  style={{
+    backgroundColor: 'white',
+    border: '1px solid rgb(209, 213, 219)'
+  }}
+>
   <CardContent>
-    <div className="p-4 border rounded-xl border-purple-500">
-      <div className="text-center font-semibold text-white py-2 bg-purple-700 rounded-xl mb-4">
+    <div 
+      className="p-4 rounded-xl"
+      style={{
+        backgroundColor: 'white',
+        border: '1px solid rgb(224, 224, 224)'
+      }}
+    >
+      <div 
+        className="text-center font-semibold py-2 rounded-xl mb-4"
+        style={{
+          backgroundColor: 'rgb(82, 37, 109)',
+          color: 'white'
+        }}
+      >
         Parámetros y estándares de evaluación
       </div>
-      
-      <div className="grid grid-cols-5 gap-x-6 text-gray-700 text-lg">
-        {/* Columna de Títulos */}
+      <div 
+        className="grid grid-cols-5 gap-x-6 text-lg"
+        style={{ color: 'rgb(73, 80, 87)' }}
+      >
+        {/* Columna de títulos */}
         <div className="col-span-1 grid grid-rows-2 gap-6">
           {["Meta", "Umbrales"].map((title, index) => (
             <h3 
               key={index}
-              className="font-semibold text-black flex items-center justify-end pr-4 text-right h-full"
+              className="font-semibold flex items-center justify-end pr-4 text-right h-full"
+              style={{ color: 'rgb(33, 37, 41)' }}
             >
               {title}
             </h3>
           ))}
         </div>
-        
-        {/* Columna de Contenido*/}
+
+        {/* Columna de contenido */}
         <div className="col-span-4 grid grid-rows-2 gap-6">
           {[
-            {
-              content: infoIndicadores[indicadorSeleccionado].meta,
-              minHeight: "min-h-[80px]"
+            { 
+              content: infoIndicadores[indicadorSeleccionado].meta, 
+              minHeight: "80px" 
             },
-            {
+            { 
               content: infoIndicadores[indicadorSeleccionado].umbrales && (
                 <div className="space-y-2 w-full">
-                  <p><span className="font-medium">Alto:</span> {infoIndicadores[indicadorSeleccionado].umbrales.alto}</p>
-                  <p><span className="font-medium">Medio:</span> {infoIndicadores[indicadorSeleccionado].umbrales.medio}</p>
-                  <p><span className="font-medium">Bajo:</span> {infoIndicadores[indicadorSeleccionado].umbrales.bajo}</p>
+                  <p>
+                    <span style={{ fontWeight: '500' }}>Alto:</span> {infoIndicadores[indicadorSeleccionado].umbrales.alto}
+                  </p>
+                  <p>
+                    <span style={{ fontWeight: '500' }}>Medio:</span> {infoIndicadores[indicadorSeleccionado].umbrales.medio}
+                  </p>
+                  <p>
+                    <span style={{ fontWeight: '500' }}>Bajo:</span> {infoIndicadores[indicadorSeleccionado].umbrales.bajo}
+                  </p>
                 </div>
               ),
-              minHeight: "min-h-[80px]"
+              minHeight: "80px"
             }
           ].map((section, index) => (
             <div 
               key={index}
-              className={`bg-gray-50 p-4 rounded-lg border border-gray-200 ${section.minHeight} flex items-center w-full`}
+              style={{
+                padding: '16px',
+                borderRadius: '8px',
+                display: 'flex',
+                alignItems: 'center',
+                width: '100%',
+                minHeight: section.minHeight,
+                backgroundColor: 'rgb(248, 249, 250)',
+                border: '1px solid rgb(224, 224, 224)'
+              }}
             >
-              <div className="text-gray-800 whitespace-pre-wrap w-full">
+              <div style={{ whiteSpace: 'pre-wrap', width: '100%', color: 'rgb(33, 37, 41)' }}>
                 {section.content}
               </div>
             </div>
@@ -1959,21 +2097,42 @@ export default function IndicadorCalculadora() {
     </div>
   </CardContent>
 </Card>
-    {/* Uso y aplicación del indicador */}
-<Card className="w-full p-6 bg-white shadow-xl rounded-xl transition-all duration-300 hover:shadow-2xl">
+
+              {/* Uso y aplicación del indicador */}
+              <Card 
+  className="w-full p-6 shadow-xl rounded-xl transition-all duration-300 hover:shadow-2xl mb-8"
+  style={{
+    backgroundColor: 'rgb(82, 37, 109)',
+    border: '1px solid rgb(209, 213, 219)'
+  }}
+>
   <CardContent>
-    <div className="p-4 border rounded-xl border-purple-500">
-      <div className="text-center font-semibold text-white py-2 bg-purple-700 rounded-xl mb-4">
+    <div 
+      className="p-4 rounded-xl"
+      style={{
+        backgroundColor: 'white',
+        border: '1px solid rgb(224, 224, 224)'
+      }}
+    >
+      <div 
+        className="text-center font-semibold py-2 rounded-xl mb-4"
+        style={{
+          backgroundColor: 'rgb(82, 37, 109)',
+          color: 'white'
+        }}
+      >
         Uso y aplicación del indicador
       </div>
-      
-      <div className="flex flex-col gap-6 text-gray-700 text-lg">
+      <div 
+        className="flex flex-col gap-6 text-lg"
+        style={{ color: 'rgb(73, 80, 87)' }}
+      >
         {[
           {
             concepto: "Toma de decisiones",
             contenido: infoIndicadores[indicadorSeleccionado].uso_toma_decisiones || 
                       "Permite diseñar estrategias preventivas específicas para grupos afectados",
-            minHeight: "min-h-[50px]"
+            minHeight: "50px"
           },
           {
             concepto: "Acciones correctivas",
@@ -1982,55 +2141,82 @@ export default function IndicadorCalculadora() {
               "Fortalecimiento de canales de denuncia",
               "Implementación de programas de formación"
             ],
-            minHeight: "min-h-[80px]",
+            minHeight: "80px",
             isList: true
           },
           {
             concepto: "Recomendaciones",
             contenido: infoIndicadores[indicadorSeleccionado].recomendaciones ?
               Object.values(infoIndicadores[indicadorSeleccionado].recomendaciones).filter(Boolean) : [],
-            minHeight: "min-h-[80px]",
+            minHeight: "80px",
             isList: true
           },
           {
             concepto: "Responsable revisión",
             contenido: infoIndicadores[indicadorSeleccionado].responsable_revision,
-            minHeight: "min-h-[50px]"
+            minHeight: "50px"
           },
           {
             concepto: "Fecha revisión",
             contenido: infoIndicadores[indicadorSeleccionado].fecha_revision,
-            minHeight: "min-h-[50px]"
+            minHeight: "50px"
           },
           {
             concepto: "Aprobado por",
             contenido: infoIndicadores[indicadorSeleccionado].aprobado_por,
-            minHeight: "min-h-[50px]"
+            minHeight: "50px"
           },
           {
             concepto: "Fecha aprobación",
             contenido: infoIndicadores[indicadorSeleccionado].fecha_aprobacion,
-            minHeight: "min-h-[50px]"
+            minHeight: "50px"
           }
         ].map((section, index) => (
-          <div key={index} className="grid grid-cols-5 gap-4 items-start">
-            {/* Título */}
-            <div className="col-span-1 flex items-center justify-start h-full">
-              <h3 className="font-semibold text-black text-left pl-2">
+          <div key={index} style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(5, minmax(0, 1fr))',
+            gap: '16px',
+            alignItems: 'flex-start'
+          }}>
+            <div style={{
+              gridColumn: 'span 1 / span 1',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'flex-start',
+              height: '100%'
+            }}>
+              <h3 style={{
+                fontWeight: 600,
+                color: 'rgb(33, 37, 41)',
+                textAlign: 'left',
+                paddingLeft: '8px'
+              }}>
                 {section.concepto}
               </h3>
             </div>
-            
-            {/* Contenido  */}
-            <div className={`col-span-4 bg-gray-50 p-4 rounded-lg border border-gray-200 ${section.minHeight}`}>
+            <div style={{
+              gridColumn: 'span 4 / span 4',
+              backgroundColor: 'rgb(248, 249, 250)',
+              padding: '16px',
+              borderRadius: '8px',
+              border: '1px solid rgb(224, 224, 224)',
+              minHeight: section.minHeight
+            }}>
               {section.isList ? (
-                <ul className="list-disc pl-5 space-y-2">
+                <ul style={{
+                  listStyleType: 'disc',
+                  paddingLeft: '20px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '8px',
+                  color: 'rgb(73, 80, 87)'
+                }}>
                   {(Array.isArray(section.contenido) ? section.contenido : [section.contenido]).map((item, i) => (
                     <li key={i}>{item}</li>
                   ))}
                 </ul>
               ) : (
-                <p>{section.contenido}</p>
+                <p style={{ color: 'rgb(73, 80, 87)' }}>{section.contenido}</p>
               )}
             </div>
           </div>
@@ -2039,8 +2225,62 @@ export default function IndicadorCalculadora() {
     </div>
   </CardContent>
 </Card>
+            </div>
+          )}
         </div>
-      )}
+      </div>
+
+      {/* Footer */}
+     <footer 
+  className="w-full text-white py-6 font-nunito"
+  style={{
+    backgroundColor: 'rgb(82, 37, 109)',
+    fontFamily: '"Nunito", sans-serif'
+  }}
+>
+  <div className="flex justify-center">
+    <div className="max-w-7xl mx-auto px-6 w-full">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-5">
+        {/* Columna Ministerio */}
+        <div className="md:col-span-1">
+          <h3 className="text-xl font-bold mb-0">Ministerio de Educación Nacional</h3>
+          <p style={{color: 'rgba(224, 224, 224, 1)'}}>Tel: +601 22 22800</p>
+          <p style={{color: 'rgba(224, 224, 224, 1)'}}>@soytransparente@mineducacion.gov.co</p>
+        </div>
+
+        {/* Columna ASCUN */}
+        <div className="md:col-span-1">
+          <h3 className="text-xl font-bold mb-6 whitespace-nowrap">Asociación Colombiana de Universidades ASCUN</h3>
+          <p style={{color: 'rgba(224, 224, 224, 1)'}}>+601 623 1580</p>
+          <p style={{color: 'rgba(224, 224, 224, 1)'}}>proyecto-vbg@ascun.org.co</p>
+        </div>
+
+        {/* Columna vacía para empujar imágenes a la derecha */}
+        <div className="hidden md:block md:col-span-1"></div>
+
+        {/* Columna de imágenes */}
+        <div className="flex justify-end items-center gap-2 md:col-span-1"> {/* Reducimos el gap a gap-2 */}
+  <img src="/ASCUN.png" alt="ASCUN" className="w-20 h-25 object-contain -mr-2" /> {/* Margen negativo derecho */}
+  <img src="/MEN.png" alt="Ministerio de Educación" className="w-40 h-20 object-contain -mx-1" /> {/* Margen negativo horizontal */}
+  <img src="/VBG.png" alt="Proyecto VGB" className="w-20 h-20 object-contain" />
+  <img src="/LOGO.png" alt="Logo Institucional" className="w-20 h-20 object-contain" />
+</div>
+      </div>
+
+      <div 
+        className="border-t text-center"
+        style={{
+          borderColor: 'rgba(123, 115, 255, 1)',
+          color: 'rgba(224, 224, 224, 1)'
+        }}
+      >
+        <p className="px-0 text-sm">
+          © {new Date().getFullYear()} AUNAR ESFUERZOS PARA PROMOVER LA IGUALDAD DE GÉNERO Y PREVENIR LAS VIOLENCIAS BASADAS EN GÉNERO - VBG EN LAS INSTITUCIONES DE EDUCACIÓN SUPERIOR(IES) A TRAVÉS DEL SEGUIMIENTO A LA IMPLEMENTACIÓN DE LA RESOLUCIÓN 14466 DE 2022 Y LA PROMOCIÓN DE ESTRATEGIAS SOBRE LA INCLUSIÓN DE UN ENFOQUE DE GÉNERO Y DIVERSIDADES EN LAS IES ASÍ COMO LA PREVENCIÓN DE OTROS TIPOS DE VIOLENCIA Y DISCRIMINACIÓN
+        </p> 
+      </div>
+    </div>
+  </div>
+</footer>
     </div>
   );
 }
