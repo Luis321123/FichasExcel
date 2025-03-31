@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/Button";
 import { Card, CardContent } from "@/components/ui/Card";
+import { FaArrowUp } from 'react-icons/fa';
 
 const indicadores = {
   "Caracterización": {
@@ -1675,6 +1676,7 @@ export default function IndicadorCalculadora() {
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("Caracterización");
   const [indicadorSeleccionado, setIndicadorSeleccionado] = useState("Seleccionar");
   const [isOpen, setIsOpen] = useState(false);
+  const [showScrollButton, setShowScrollButton] = useState(false);
   const selectRef = useRef(null);
 
   const handleCategoriaChange = (categoria) => {
@@ -1683,6 +1685,7 @@ export default function IndicadorCalculadora() {
     setIsOpen(false);
   };
 
+  // Efecto para cerrar el select al hacer click fuera
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (selectRef.current && !selectRef.current.contains(e.target)) {
@@ -1695,6 +1698,47 @@ export default function IndicadorCalculadora() {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [indicadorSeleccionado]);
+
+  // Efecto para mostrar/ocultar el botón de scroll con animación suave
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.pageYOffset > 300) {
+        setShowScrollButton(true);
+      } else {
+        setShowScrollButton(false);
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Función para scroll suave personalizado
+  const smoothScrollToTop = () => {
+    const startPosition = window.pageYOffset;
+    const distance = -startPosition;
+    const duration = 1000; // 1 segundo de duración (ajustable)
+    let startTime = null;
+    
+    const animation = (currentTime) => {
+      if (startTime === null) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const progress = Math.min(timeElapsed / duration, 1);
+      
+      // Usamos una función de easing para suavizar el movimiento
+      const easeInOutCubic = (t) => {
+        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+      };
+      
+      window.scrollTo(0, startPosition + distance * easeInOutCubic(progress));
+      
+      if (timeElapsed < duration) {
+        requestAnimationFrame(animation);
+      }
+    };
+    
+    requestAnimationFrame(animation);
+  };
 
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-r from-white-50 via-purple-100 to-purple-200 font-nunito"
@@ -2287,6 +2331,21 @@ export default function IndicadorCalculadora() {
     </div>
   </div>
 </footer>
+{/* Botón con icono */}
+<button
+        className={`fixed bottom-24 right-6 bg-purple-700 hover:bg-purple-800 text-white p-3 rounded-full shadow-lg flex items-center justify-center transition-all duration-500 ${
+          showScrollButton ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
+        }`}
+        style={{
+          zIndex: 1000,
+          width: '50px',
+          height: '50px'
+        }}
+        onClick={smoothScrollToTop}
+        aria-label="Volver arriba"
+      >
+        <FaArrowUp size={20} />
+      </button>
     </div>
   );
 }
