@@ -48,7 +48,7 @@ const indicadores = {
       { nombre: "Nivel de satisfacción con los servicios de atención" },
       { nombre: "Percepción sobre la efectividad de los protocolos" },
       { nombre: "Índice de reincidencia en casos de DyVBG" },
-      { nombre: "Índice de satisfacción con la atención recibida2" }
+      { nombre: "Índice de satisfacción con la atención recibida" }
     ]
   }
 };
@@ -544,74 +544,55 @@ const infoIndicadores = {
     aprobado_por: "Equipo MEN-ASCUN",
     fecha_aprobacion: "Marzo de 2025"
 },
-  "Porcentaje de personal docente y administrativo capacitado en identificación y manejo de casos de DyVBG": {
-    "codigo": "DET_06",
-    "nombre": "Porcentaje de personal docente y administrativo capacitado en identificación y manejo de casos de DyVBG",
-    "categoria": "Detección",
-    "tipologia": "Complejo",
-    "nivel": "Resultado",
-    "fechaCreacion": "Marzo de 2025",
-    "ultimaActualizacion": "Marzo de 2025",
-    "dependencia": "Bienestar de la IES, Oficina/comité de Género, Secretaría general, Oficina de personal/talento humano",
-    "factores": [
-        "Disponibilidad de recursos para formación",
-        "Participación del personal",
-        "Voluntad institucional",
-        "Cambios normativos",
-        "Disponibilidad de expertos en capacitación",
-        "Acceso a materiales actualizados"
-    ],
-    "Definición": "Mide el porcentaje de docentes y personal administrativo que ha recibido formación específica en identificación y manejo de casos de DyVBG dentro de la institución. Se interpreta como el grado de preparación de la comunidad universitaria para actuar frente a situaciones de violencia de género y basada en género.",
-    "objetivo": "Garantizar que el personal esté capacitado en la detección, abordaje y canalización de casos de DyVBG, promoviendo una respuesta efectiva y segura para las víctimas.",
-    "relevancia": "La capacitación en DyVBG es clave para prevenir, atender y erradicar la violencia en las IES, asegurando espacios seguros y libres de discriminación.",
-    "preguntas_orientadoras": {
-        "p1": "¿Cuántos docentes y administrativos han recibido capacitación en DyVBG, por edad, sexo y tiempo de permanencia en la IES?",
-        "p2": "¿Qué porcentaje del total del personal ha sido capacitado, por edad, sexo y tiempo de permanencia en la IES?",
-        "p3": "¿La capacitación ha tenido impacto en la identificación y manejo de casos?"
+  "Número de capacitaciones anuales impartidas al personal sobre el manejo de casos de DyVBG": {
+    nombre: "Número de capacitaciones anuales impartidas al personal sobre el manejo de casos de DyVBG",
+    categoria: "Detección",
+    tipologia: "Simple",
+    nivel: "Gestión",
+    fechaCreacion: "Marzo de 2025",
+    ultimaActualizacion: "Marzo de 2025",
+    dependencia: "Bienestar de la IES, Oficina/comité de Género, Dirección de Recursos Humanos, Dirección de personal. Vicerrectoría Académica",
+    factores: "Falta de presupuesto, baja participación del personal, cambios en la normativa institucional, falta de capacitadores especializados",
+    Definición: "Mide la cantidad de capacitaciones realizadas anualmente para fortalecer las competencias del personal en la atención y prevención de DyVBG",
+    objetivo: "Garantizar la formación continua del personal en la atención de casos de DyVBG dentro de la institución",
+    relevancia: "Permite evaluar el compromiso de la institución con la prevención y atención de DyVBG y el fortalecimiento de capacidades",
+    preguntas_orientadoras: {
+      p1: "¿Cuántas capacitaciones se realizaron en el año?",
+      p2: "¿Qué porcentaje del personal participó en las capacitaciones?",
+      p3: "¿Se ha incrementado la cantidad de capacitaciones en comparación con años anteriores?",
+      p4: "¿Cuáles fueron las temáticas de las capacitaciones?",
+      p5: "¿Cuáles fueron los conocimientos adquiridos con las capacitaciones?"
     },
-    "Fórmula": "PC=[NCD/NTD]×100\nPPC = Porcentaje Personal capacitado en DyVBG por edad, sexo y tiempo de permanencia en la IES\nNCD = Número de docentes y administrativos capacitados por edad, sexo y tiempo de permanencia en la IES\nNTD = Número total de docentes y administrativos por edad, sexo y tiempo de permanencia en la IES",
-    "Variables_utilizadas": [
-        "Cantidad de docentes y administrativos capacitados por edad, sexo y tiempo de permanencia en la IES",
-        "Total de personal docente y administrativo de la IES, por edad, sexo y tiempo de permanencia en la IES"
-    ],
-    "Fuente_de_datos": [
-        "Registros de asistencia a capacitaciones",
-        "Reportes de la Oficina de Talento Humano, Dirección de personal",
-        "Informes de la Unidad/Comité de Género",
-        "Bienestar de la IES"
-    ],
-    "frecuencia_de_medición": "Anual",
-    "unidad_de_medida": "Porcentaje (%)",
-    "interpretación": "Un mayor porcentaje indica una percepción de seguridad más alta; un porcentaje bajo sugiere la necesidad de intervención.",
-    "meta": "90% de docentes y administrativos capacitados en DyVBG anualmente",
-    "umbrales": {
-        "alto": "Alto (80-100%): Cobertura adecuada, la mayoría del personal ha recibido formación",
-        "medio": "Medio (50-79%): Se han realizado esfuerzos, pero es necesario ampliar la capacitación",
-        "bajo": "Bajo (0-49%): Deficiencia en la capacitación, alto riesgo en la identificación y manejo de casos"
+    meta: "Al menos 10 capacitaciones anuales",
+    meta2: {
+      m1: "",
+      m2: "",
+      m3: ""
     },
-    "uso_toma_decisiones": [
-        "Permite identificar brechas en la formación del personal",
-        "Sirve para ajustar planes de capacitación",
-        "Fortalecer protocolos de atención",
-        "Evaluar necesidades de formación específica"
-    ],
-    "acciones_correctivas": [
-        "Implementar un programa obligatorio de formación en DyVBG",
-        "Incorporar módulos virtuales para mejorar la accesibilidad",
-        "Realizar evaluaciones de impacto de las capacitaciones",
-        "Establecer incentivos para la participación del personal"
-    ],
-    "recomendaciones": {
-        "r1": "Garantizar que el contenido de la capacitación esté actualizado con enfoque de género y derechos humanos",
-        "r2": "Incluir simulaciones y estudios de caso en la formación",
-        "r3": "Ampliar la oferta de formación para nuevo personal y reforzar capacitaciones periódicamente",
-        "r4": "Evaluar la correlación entre la formación del personal y la disminución de casos de DyVBG"
+    umbrales: {
+      alto: "Alto (Óptimo): Más de 10 capacitaciones anuales",
+      medio: "Medio (Aceptable): Entre 5 y 10 capacitaciones anuales",
+      bajo: "Bajo (Crítico): Menos de 5 capacitaciones anuales"
     },
-    "responsable_revision": "Equipo MEN-ASCUN",
-    "fecha_revision": "Marzo de 2025",
-    "aprobado_por": "Equipo MEN-ASCUN",
-    "fecha_aprobacion": "Marzo de 2025"
-},"Porcentaje de personas de la comunidad academica que conoce los canales dedenuncia": {
+    Fórmula: "[Número de capacitaciones realizadas por tipología y temáticas/ Total de capacitaciones realizadas]*100\n[Total asistentes a las capacitaciones por estamento/total de personal en la IES por estamento]*100\n[Total de asistentes a capacitaciones por temática/Total de capacitaciones realizadas]*100",
+    Variables_utilizadas: "Número total de capacitaciones impartidas por tipologías (cursos, conferencias, talleres, mesas, digitales y virtuales) y temáticas",
+    Fuente_de_datos: "Registros de asistencia, equipo de comunicaciones",
+    frecuencia_de_medición: "Anual",
+    unidad_de_medida: "Porcentaje (%)",
+    interpretación: "Un mayor número de capacitaciones indica un fortalecimiento en la formación del personal en DyVBG y podría generar un cambio cultural en la IES",
+    recomendaciones: {
+      r1: "Diseñar un instrumento que permita identificar las necesidades de formación en el personal de la IES",
+      r2: "Diseñar un plan anual de formación con metas claras",
+      r3: "Vincular expertos externos para fortalecer la calidad de las capacitaciones",
+      r4: "Fomentar campañas de sensibilización para aumentar la participación",
+      r5: "Implementar un sistema de seguimiento para medir el impacto del aprendizaje en la atención de casos de DyVBG"
+    },
+    responsable_revision: "Equipo MEN-ASCUN",
+    fecha_revision: "Marzo de 2025",
+    aprobado_por: "Equipo MEN-ASCUN",
+    fecha_aprobacion: "Marzo de 2025"
+  },
+"Porcentaje de personas de la comunidad academica que conoce los canales dedenuncia": {
   codigo: "DET_08",
   nombre: "Porcentaje de personas de la comunidad académica que conoce los canales de denuncia",
   categoria: "Detección",
@@ -677,6 +658,132 @@ const infoIndicadores = {
   fecha_revision: "Marzo de 2025",
   aprobado_por: "Equipo MEN-ASCUN",
   fecha_aprobacion: "Marzo de 2025"
+},
+"Índice de Percepción de Seguridad en el Campus (IPSC)": {
+    codigo: "DET_05",
+    nombre: "Índice de Percepción de Seguridad en el Campus (IPSC)",
+    categoria: "Detección",
+    tipologia: "Complejo",
+    nivel: "Impacto",
+    fechaCreacion: "Marzo de 2025",
+    ultimaActualizacion: "Marzo de 2025",
+    dependencia: "Bienestar de la IES, Oficina/comité de Género, oficina jurídica, Rectoría, Secretaría general",
+    factores: [
+      "Falta de presupuesto",
+      "Iluminación inadecuada",
+      "Presencia de personal de seguridad",
+      "Ocurrencia de incidentes previos",
+      "Infraestructura",
+      "Percepción de la comunidad"
+    ],
+    Definición: "Mide la percepción de estudiantes, docentes y personal administrativo sobre su seguridad en el campus, basada en encuestas y reportes en temática específica de DyVBG.",
+    objetivo: "Evaluar el nivel de confianza en la seguridad del campus y diseñar estrategias de mejora.",
+    relevancia: "Un entorno seguro es clave para el bienestar y desempeño académico y laboral de la comunidad universitaria.",
+    preguntas_orientadoras: {
+      p1: "¿Los estudiantes y el personal se sienten seguros en el campus?",
+      p2: "¿Cuáles son las zonas percibidas como más inseguras?",
+      p3: "¿Cuáles son los factores que generan mayor sensación de inseguridad?"
+    },
+    Fórmula: "IPSC=(PV×WV)+(PI×WI)+(PA×WA)+(PE×WE)/WT\nDonde:\nPV = Percepción de seguridad en vías de acceso al campus\nPI = Percepción de seguridad en instalaciones y edificios\nPA = Percepción de seguridad en actividades extracurriculares\nPE = Percepción de seguridad en eventos dentro del campus\nWV, WI, WA, WE = Pesos asignados a cada dimensión según su relevancia\nWT = Suma de los pesos (WT=WV+WI+WA+WE)\n\nPercepción de seguridad=[total de respuestas positivas/total de respuestas]",
+    Variables_utilizadas: [
+      "Percepción de seguridad en vías de acceso al campus: Encuestas sobre iluminación, vigilancia y presencia de situaciones de riesgo",
+      "Percepción de seguridad en instalaciones y edificios: Evaluación de infraestructura y monitoreo",
+      "Percepción de seguridad en actividades extracurriculares: Opiniones sobre eventos deportivos y culturales",
+      "Percepción de seguridad en eventos dentro del campus: Evaluación de medidas en conferencias y reuniones"
+    ],
+    Fuente_de_datos: "Encuestas a estudiantes y personal utilizando escala Likert de 5 niveles",
+    frecuencia_de_medición: "Anual",
+    unidad_de_medida: "Porcentaje (%)",
+    interpretación: "Mayor porcentaje indica mejor percepción de seguridad; porcentaje bajo requiere intervención urgente",
+    meta: "80% o más de percepción de seguridad",
+    umbrales: {
+      alto: "Alta percepción (80 - 100%): Campus considerado seguro",
+      medio: "Percepción media (50 - 79%): Preocupaciones en ciertos aspectos",
+      bajo: "Baja percepción (0 - 49%): Requiere acciones urgentes"
+    },
+    uso_toma_decisiones: "Mejorar estrategias de prevención y protección en el campus",
+    acciones_correctivas: [
+      "Aumentar iluminación en zonas críticas",
+      "Reforzar vigilancia",
+      "Implementar campañas de sensibilización"
+    ],
+    recomendaciones: {
+      r1: "Monitoreo constante de la percepción de seguridad",
+      r2: "Campañas de difusión de medidas de protección",
+      r3: "Fortalecer mecanismos de denuncia anónima"
+    },
+    responsable_revision: "Equipo MEN-ASCUN",
+    fecha_revision: "Marzo de 2025",
+    aprobado_por: "Equipo MEN-ASCUN",
+    fecha_aprobacion: "Marzo de 2025"
+  },
+  "Porcentaje de personal docente y administrativo capacitado en identificación y manejo de casos de DyVBG": {
+    codigo: "DET_06",
+    nombre: "Porcentaje de personal docente y administrativo capacitado en identificación y manejo de casos de DyVBG",
+    categoria: "Detección",
+    tipologia: "Complejo",
+    nivel: "Resultado",
+    fechaCreacion: "Marzo de 2025",
+    ultimaActualizacion: "Marzo de 2025",
+    dependencia: "Bienestar de la IES, Oficina/comité de Género, Secretaría general, Oficina de personal/talento humano",
+    factores: [
+        "Disponibilidad de recursos para formación",
+        "Participación del personal",
+        "Voluntad institucional",
+        "Cambios normativos",
+        "Disponibilidad de expertos en capacitación",
+        "Acceso a materiales actualizados"
+    ],
+    Definición: "Mide el porcentaje de docentes y personal administrativo que ha recibido formación específica en identificación y manejo de casos de DyVBG dentro de la institución. Se interpreta como el grado de preparación de la comunidad universitaria para actuar frente a situaciones de violencia de género y basada en género.",
+    objetivo: "Garantizar que el personal esté capacitado en la detección, abordaje y canalización de casos de DyVBG, promoviendo una respuesta efectiva y segura para las víctimas.",
+    relevancia: "La capacitación en DyVBG es clave para prevenir, atender y erradicar la violencia en las IES, asegurando espacios seguros y libres de discriminación.",
+    preguntas_orientadoras: {
+        "p1": "¿Cuántos docentes y administrativos han recibido capacitación en DyVBG, por edad, sexo y tiempo de permanencia en la IES?",
+        "p2": "¿Qué porcentaje del total del personal ha sido capacitado, por edad, sexo y tiempo de permanencia en la IES?",
+        "p3": "¿La capacitación ha tenido impacto en la identificación y manejo de casos?"
+    },
+    Fórmula: "PC=[NCD/NTD]×100\nPPC = Porcentaje Personal capacitado en DyVBG por edad, sexo y tiempo de permanencia en la IES\nNCD = Número de docentes y administrativos capacitados por edad, sexo y tiempo de permanencia en la IES\nNTD = Número total de docentes y administrativos por edad, sexo y tiempo de permanencia en la IES",
+    Variables_utilizadas: [
+        "Cantidad de docentes y administrativos capacitados por edad, sexo y tiempo de permanencia en la IES",
+        "Total de personal docente y administrativo de la IES, por edad, sexo y tiempo de permanencia en la IES"
+    ],
+    Fuente_de_datos: [
+        "Registros de asistencia a capacitaciones",
+        "Reportes de la Oficina de Talento Humano, Dirección de personal",
+        "Informes de la Unidad/Comité de Género",
+        "Bienestar de la IES"
+    ],
+    frecuencia_de_medición: "Anual",
+    unidad_de_medida: "Porcentaje (%)",
+    interpretación: "Un mayor porcentaje indica una percepción de seguridad más alta; un porcentaje bajo sugiere la necesidad de intervención.",
+    meta: "90% de docentes y administrativos capacitados en DyVBG anualmente",
+    umbrales: {
+        "alto": "Alto (80-100%): Cobertura adecuada, la mayoría del personal ha recibido formación",
+        "medio": "Medio (50-79%): Se han realizado esfuerzos, pero es necesario ampliar la capacitación",
+        "bajo": "Bajo (0-49%): Deficiencia en la capacitación, alto riesgo en la identificación y manejo de casos"
+    },
+    uso_toma_decisiones: [
+        "Permite identificar brechas en la formación del personal",
+        "Sirve para ajustar planes de capacitación",
+        "Fortalecer protocolos de atención",
+        "Evaluar necesidades de formación específica"
+    ],
+    acciones_correctivas: [
+        "Implementar un programa obligatorio de formación en DyVBG",
+        "Incorporar módulos virtuales para mejorar la accesibilidad",
+        "Realizar evaluaciones de impacto de las capacitaciones",
+        "Establecer incentivos para la participación del personal"
+    ],
+    recomendaciones: {
+        "r1": "Garantizar que el contenido de la capacitación esté actualizado con enfoque de género y derechos humanos",
+        "r2": "Incluir simulaciones y estudios de caso en la formación",
+        "r3": "Ampliar la oferta de formación para nuevo personal y reforzar capacitaciones periódicamente",
+        "r4": "Evaluar la correlación entre la formación del personal y la disminución de casos de DyVBG"
+    },
+    responsable_revision: "Equipo MEN-ASCUN",
+    fecha_revision: "Marzo de 2025",
+    aprobado_por: "Equipo MEN-ASCUN",
+    fecha_aprobacion: "Marzo de 2025"
 },
 "Porcentaje de personas de la comunidad academica con conocimiento sobre los protocolos de denuncia": { 
   codigo: "DET_07",
@@ -1454,7 +1561,23 @@ const infoIndicadores = {
       p3: "¿Se hace un seguimiento adecuado a los casos previos?",
       p4: "¿Los programas de prevención han reducido la reincidencia?"
     },
-    Fórmula: "IRP=[(∑1_(𝑖=1)^𝑁▒〖𝐹_𝑖∗ 𝑃_𝐺𝑖 〗∗ 𝑃_𝑇𝑖∗𝑃_𝐸𝑖)/𝐶𝑇]∗100",
+    Fórmula: `El índice debe incorporar múltiples dimensiones y ajustar los valores según la gravedad de la conducta y las acciones correctivas aplicadas.
+
+El índice debe contener:
+- Frecuencia de reincidencia (cuántas veces reincide una persona en un período determinado)
+- Tiempo entre reincidencias (una reincidencia rápida indica mayor riesgo)
+- Gravedad de la reincidencia (basado en el tipo de agresión y sus consecuencias)
+- Eficacia de la intervención (considerando si se aplicaron sanciones y su impacto)
+
+Fórmula:
+IRP = [(Σ(Fi * PGi * PTi * PEi) desde i=1 hasta N) / CT] * 100
+
+Donde:
+- IRP = Índice de reincidencia ponderado (%).
+- Fi = Número de reincidencias de la persona iii.
+- PGi = Peso de la gravedad del caso de reincidencia iii (valores entre 1 y 3, siendo 3 el más grave).
+- PTi = Peso del tiempo transcurrido desde la sanción previa (111 si más de 1 año, 222 si entre 6 meses y 1 año, 333 si menos de 6 meses)
+- PEi = Peso de la efectividad de la sanción anterior(valor de 111 si hubo acciones correctivas previas, 222 si fueron parciales y 333 si no se aplicaron)`,
     Variables_utilizadas: [
       "Número de agresores reincidentes",
       "Total de denuncias",
@@ -1487,81 +1610,7 @@ const infoIndicadores = {
     aprobado_por: "Equipo MEN-ASCUN",
     fecha_aprobacion: "Marzo de 2025"
   },
-  "Índice de satisfacción con la atención recibida": {
-  nombre: "Índice de satisfacción con la atención recibida",
-  codigo: "ATE_05",
-  categoria: "Atención",
-  tipologia: "Complejo",
-  nivel: "Impacto",
-  fechaCreacion: "Marzo de 2025",
-  ultimaActualizacion: "Marzo de 2025",
-  dependencia: "Bienestar de la IES, Oficina/comité de Género, Oficina de Atención a Víctimas, Departamento de Psicología y Asesoría/Oficina Jurídica",
-  factores:[
-    "Capacitación y sensibilización del personal de atención",
-    "Disponibilidad de recursos humanos y materiales",
-    "Confidencialidad y efectividad de los protocolos",
-    "Percepción institucional sobre el compromiso con la atención"
-  ],
-  Definición: "Este indicador mide el grado de satisfacción de las víctimas de DyVBG respecto a los servicios de atención brindados por la institución. Se evalúa en función de la accesibilidad, confidencialidad, efectividad y trato recibido durante el proceso.",
-  objetivo: "Identificar áreas de mejora en la atención a víctimas, garantizando un servicio eficiente, humano y orientado a la recuperación y reparación del daño.",
-  relevancia: "Un alto nivel de satisfacción refleja confianza en la institución y en los mecanismos de atención, incentivando la denuncia y fortaleciendo el apoyo a víctimas.",
-  preguntas_orientadoras: [
-    "¿Las víctimas consideran que la atención recibida fue efectiva?",
-    "¿Se sintieron respetadas y escuchadas?",
-    "¿Consideran que se tomaron medidas adecuadas tras su denuncia?",
-    "¿El servicio ofreció un acompañamiento integral y oportuno?"
-  ],
-  Fórmula: "IS=[(∑(Pi∗Wi))/N]∗100\n\nDonde:\nPi = Puntuación por dimensión (1-5)\nWi = Peso asignado a cada dimensión (ej: Accesibilidad 25%, Confidencialidad 25%, Trato 25%, Efectividad 25%)\nN = Número total de dimensiones evaluadas",
-  Variables_utilizadas: [
-    "Calificación de la atención",
-    "Peso asignado a las dimensiones"
-  ],
-  Fuente_de_datos: [
-    "Encuestas de satisfacción aplicadas a víctimas",
-    "Reportes internos de la Oficina/comité de Género"
-  ],
-  frecuencia_de_medición: "Trimestral",
-  unidad_de_medida: "Porcentaje (%)",
-  interpretación: "El Índice de Satisfacción con la atención recibida refleja la calidad de los servicios de apoyo institucional para quienes han sufrido DyVBG. Un puntaje alto indica que la institución está cumpliendo con su compromiso de garantizar atención oportuna, confidencial y efectiva. Un nivel bajo sugiere que las víctimas no están recibiendo el acompañamiento adecuado, lo que puede generar desconfianza y desincentivar la denuncia.",
-  meta: "IS ≥ 80% (nivel adecuado de atención)",
-  umbrales: {
-    optimo: "80-100%: Atención efectiva que satisface necesidades",
-    moderado: "50-79%: Áreas de mejora en el servicio",
-    critico: "<50%: Deficiencias que requieren intervención urgente"
-  },
-  uso_toma_decisiones: {
-    decisiones: [
-      "Mejorar la calidad de la atención con protocolos humanizados",
-      "Optimizar canales de denuncia y apoyo",
-      "Reforzar acompañamiento integral a víctimas",
-      "Evaluar efectividad de protocolos institucionales",
-      "Asignación estratégica de recursos",
-      "Mejorar confianza institucional"
-    ],
-    dependencias_responsables: [
-      "Bienestar de la IES",
-      "Oficina/comité de Género",
-      "Oficina de Atención a Víctimas",
-      "Departamento de Psicología",
-      "Asesoría Jurídica"
-    ]
-  },
-  acciones_correctivas: [
-    "Capacitación del personal en atención humanizada",
-    "Revisión de protocolos de atención",
-    "Ampliación de recursos psicológicos y jurídicos"
-  ],
-  recomendaciones: [
-    "Implementar sistema de retroalimentación continua",
-    "Fomentar enfoque interinstitucional",
-    "Sensibilizar a la comunidad universitaria"
-  ],
-  responsable_revision: "Equipo MEN-ASCUN",
-  fecha_revision: "Marzo de 2025",
-  aprobado_por: "Equipo MEN-ASCUN",
-  fecha_aprobacion: "Marzo de 2025"
-},
-"Índice de satisfacción con la atención recibida2": {
+"Índice de satisfacción con la atención recibida": {
     nombre: "Índice de satisfacción con la atención recibida",
     categoria: "Atención",
     tipologia: "Complejo",
@@ -1591,7 +1640,7 @@ const infoIndicadores = {
       medio: "Un IS medio (50-79%) sugiere áreas de mejora en el servicio.",
       bajo: "Un ISV bajo (<50%) señala deficiencias que requieren intervención urgente."
     },
-    Fórmula: "Pi = Puntuación asignada en cada dimensión evaluada (accesibilidad, confidencialidad, trato, efectividad).\nWi = Peso asignado a cada dimensión según su importancia relativa.\nVariables y Parámetros:\nPi : Calificación de la atención en una escala de 1 a 5.\nWi: Peso por dimensión (Ejemplo: Accesibilidad 25%, Confidencialidad 25%, Trato 25%, Efectividad 25%).",
+    Fórmula: " \nIRP = [(Σ(Fi * PGi * PTi * PSi) desde i=1 hasta N) / CT] * 100 \n\nPi = Puntuación asignada en cada dimensión evaluada (accesibilidad, confidencialidad, trato, efectividad).\nWi = Peso asignado a cada dimensión según su importancia relativa.\nVariables y Parámetros:\nPi : Calificación de la atención en una escala de 1 a 5.\nWi: Peso por dimensión (Ejemplo: Accesibilidad 25%, Confidencialidad 25%, Trato 25%, Efectividad 25%).",
     Variables_utilizadas: "Calificación de la atención, peso asignado a las dimensiones.",
     Fuente_de_datos: "Encuestas de satisfacción aplicadas a víctimas después del proceso de atención.\nReportes internos de la Oficina/comité de Género.",
     frecuencia_de_medición: "Trimestral",
@@ -1617,6 +1666,12 @@ export default function IndicadorCalculadora() {
   const [isOpen, setIsOpen] = useState(false);
   const selectRef = useRef(null);
 
+  const handleCategoriaChange = (categoria) => {
+    setCategoriaSeleccionada(categoria);
+    setIndicadorSeleccionado("Seleccionar"); // Resetear el indicador al cambiar categoría
+    setIsOpen(false);
+  };
+
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (selectRef.current && !selectRef.current.contains(e.target)) {
@@ -1636,7 +1691,7 @@ export default function IndicadorCalculadora() {
         {Object.keys(indicadores).map((categoria) => (
           <Button
             key={categoria}
-            onClick={() => setCategoriaSeleccionada(categoria)}
+            onClick={() => handleCategoriaChange(categoria)}
             className={`text-lg px-6 py-2 rounded-xl transition-all duration-300 transform hover:scale-105 ${
               categoriaSeleccionada === categoria
                 ? "bg-gradient-to-r from-purple-500 to-purple-700 text-white shadow-lg"
@@ -1657,12 +1712,14 @@ export default function IndicadorCalculadora() {
               <div className="relative" ref={selectRef}>
                 <div
                   onClick={() => setIsOpen(!isOpen)}
-                  className="p-3 rounded-xl border bg-gray-50 cursor-pointer focus:outline-none"
+                  className={`p-3 rounded-xl border bg-gray-50 cursor-pointer focus:outline-none ${
+                    indicadorSeleccionado === "Seleccionar" ? "text-gray-400" : "text-gray-800"
+                  }`}
                 >
-                  {indicadorSeleccionado || "Seleccionar"}
+                  {indicadorSeleccionado}
                 </div>
                 {isOpen && (
-                  <div className="absolute top-full mt-2 w-full bg-white border border-gray-300 rounded-xl shadow-lg z-10">
+                  <div className="absolute top-full mt-2 w-full bg-white border border-gray-300 rounded-xl shadow-lg z-10 max-h-96 overflow-y-auto">
                     <div
                       className="p-3 text-lg hover:bg-purple-100 cursor-pointer transition-colors"
                       onClick={() => {
@@ -1722,7 +1779,7 @@ export default function IndicadorCalculadora() {
       </div>
       
       <div className="grid grid-cols-5 gap-x-6 text-gray-700 text-lg ">
-        {/* Columna de Títulos - Alineados a la derecha */}
+        {/* Columna de Títulos*/}
         <div className="col-span-1 grid grid-rows-7 gap-6">
           {[
             "Definición",
@@ -1739,7 +1796,7 @@ export default function IndicadorCalculadora() {
           ))}
         </div>
         
-        {/* Columna de Contenido - Alineación exacta */}
+        {/* Columna de Contenido*/}
         <div className="col-span-4 grid grid-rows-4 gap-6 ">
           {[
             {
@@ -1758,7 +1815,7 @@ export default function IndicadorCalculadora() {
               content: infoIndicadores[indicadorSeleccionado].preguntas_orientadoras && (
                 <ul className="space-y-3 list-disc pl-5">
                   {Object.values(infoIndicadores[indicadorSeleccionado].preguntas_orientadoras)
-                    .filter(p => p) // Filtra preguntas vacías
+                    .filter(p => p)
                     .map((pregunta, i) => (
                       <li key={i} className="text-gray-800">{pregunta}</li>
                   ))}
@@ -1781,84 +1838,75 @@ export default function IndicadorCalculadora() {
     </div>
   </CardContent>
 </Card>
-{/* Nueva Tarjeta Independiente de Fórmula y Método de Cálculo */}
-<Card className="w-full p-6 bg-white shadow-xl rounded-xl transition-all duration-300 hover:shadow-2xl">
+{/* Fórmula y Método de Cálculo */}
+<Card className="w-full p-4 bg-white shadow-xl rounded-xl transition-all duration-300 hover:shadow-2xl">
   <CardContent>
-    <div className="p-4 border rounded-xl border-purple-500">
-      <div className="text-center font-semibold text-white py-2 bg-purple-700 rounded-xl mb-4">
+    <div className="p-3 border rounded-xl border-purple-500">
+      <div className="text-center font-semibold text-white py-2 bg-purple-700 rounded-xl mb-3 text-lg">
         Fórmula y método de cálculo
       </div>
-      
-      <div className="grid grid-cols-5 gap-x-6 text-gray-700 text-lg p-4">
-        {/* Columna de Conceptos - Alineados arriba */}
-        <div className="col-span-1 grid grid-rows-5 gap-6">
-          {[
-            "Fórmula",
-            "Variables utilizadas",
-            "Fuente de datos",
-            "Frecuencia de medición",
-            "Unidad de medida"
-          ].map((title, index) => (
-            <h3 
-              key={index}
-              className="font-semibold text-black flex items-start justify-end pr-4 text-right"
-            >
-              {title}
-            </h3>
-          ))}
-        </div>
-        
-        {/* Columna de Contenido - Alineado arriba */}
-        <div className="col-span-4 grid grid-rows-5 gap-6">
-          {[
-            {
-              content: infoIndicadores[indicadorSeleccionado].Fórmula,
-              minHeight: "min-h-[50px]"
-            },
-            {
-              content: Array.isArray(infoIndicadores[indicadorSeleccionado].Variables_utilizadas) 
-                ? infoIndicadores[indicadorSeleccionado].Variables_utilizadas.join("\n")
-                : infoIndicadores[indicadorSeleccionado].Variables_utilizadas,
-              minHeight: "min-h-[80px]"
-            },
-            {
-              content: Array.isArray(infoIndicadores[indicadorSeleccionado].Fuente_de_datos)
-                ? infoIndicadores[indicadorSeleccionado].Fuente_de_datos.join("\n")
-                : infoIndicadores[indicadorSeleccionado].Fuente_de_datos,
-              minHeight: "min-h-[80px]"
-            },
-            {
-              content: infoIndicadores[indicadorSeleccionado].frecuencia_de_medición,
-              minHeight: "min-h-[50px]"
-            },
-            {
-              content: infoIndicadores[indicadorSeleccionado].unidad_de_medida,
-              minHeight: "min-h-[50px]"
-            }
-          ].map((section, index) => (
-            <div 
-              key={index}
-              className={`bg-gray-50 p-4 pt-0 rounded-lg border border-gray-200 ${section.minHeight} flex items-start w-full`}
-            >
-              <div className="text-gray-800 whitespace-pre-wrap w-full">
-                {typeof section.content === 'string' ? section.content : (
-                  <ul className="list-disc pl-5 space-y-2">
-                    {section.content.map((item, i) => (
-                      <li key={i}>{item}</li>
-                    ))}
-                  </ul>
-                )}
+
+      {/* Grid principal con 5 filas (una por cada concepto) */}
+      <div className="grid grid-rows-2 gap-y-3">
+        {[
+          {
+            title: "Fórmula",
+            content: infoIndicadores[indicadorSeleccionado].Fórmula
+          },
+          {
+            title: "Variables utilizadas",
+            content: Array.isArray(infoIndicadores[indicadorSeleccionado].Variables_utilizadas) 
+              ? infoIndicadores[indicadorSeleccionado].Variables_utilizadas.join("\n")
+              : infoIndicadores[indicadorSeleccionado].Variables_utilizadas
+          },
+          {
+            title: "Fuente de datos",
+            content: Array.isArray(infoIndicadores[indicadorSeleccionado].Fuente_de_datos)
+              ? infoIndicadores[indicadorSeleccionado].Fuente_de_datos.join("\n")
+              : infoIndicadores[indicadorSeleccionado].Fuente_de_datos
+          },
+          {
+            title: "Frecuencia de medición",
+            content: infoIndicadores[indicadorSeleccionado].frecuencia_de_medición
+          },
+          {
+            title: "Unidad de medida",
+            content: infoIndicadores[indicadorSeleccionado].unidad_de_medida
+          }
+        ].map((item, index) => (
+          <div key={index} className="grid grid-cols-5 gap-x-4 h-full">
+            {/* Columna de título */}
+            <div className="col-span-1 flex items-start">
+              <h3 className="font-semibold text-black text-right pr-2 w-full">
+                {item.title}
+              </h3>
+            </div>
+            
+            {/* Columna de contenido */}
+            <div className="col-span-4 flex items-start">
+              <div className="bg-gray-50 p-3 rounded-lg border border-gray-200 w-full">
+                <div className="text-gray-800 whitespace-pre-wrap">
+                  {typeof item.content === 'string' ? (
+                    item.content
+                  ) : (
+                    <ul className="list-disc pl-4">
+                      {item.content.map((text, i) => (
+                        <li key={i} className="mb-1 last:mb-0">{text}</li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </div>
   </CardContent>
 </Card>
 
 
-{/* Uso y aplicación del indicador - Versión Dinámica */}
+{/* Uso y aplicación del indicador*/}
 <Card className="w-full p-6 bg-white shadow-xl rounded-xl transition-all duration-300 hover:shadow-2xl">
   <CardContent>
     <div className="p-4 border rounded-xl border-purple-500">
@@ -1867,7 +1915,7 @@ export default function IndicadorCalculadora() {
       </div>
       
       <div className="grid grid-cols-5 gap-x-6 text-gray-700 text-lg">
-        {/* Columna de Títulos - Alineados a la derecha */}
+        {/* Columna de Títulos */}
         <div className="col-span-1 grid grid-rows-2 gap-6">
           {["Meta", "Umbrales"].map((title, index) => (
             <h3 
@@ -1879,7 +1927,7 @@ export default function IndicadorCalculadora() {
           ))}
         </div>
         
-        {/* Columna de Contenido - Alineado a la izquierda */}
+        {/* Columna de Contenido*/}
         <div className="col-span-4 grid grid-rows-2 gap-6">
           {[
             {
@@ -1911,7 +1959,7 @@ export default function IndicadorCalculadora() {
     </div>
   </CardContent>
 </Card>
-    {/* Uso y aplicación del indicador - Versión Final Alineada */}
+    {/* Uso y aplicación del indicador */}
 <Card className="w-full p-6 bg-white shadow-xl rounded-xl transition-all duration-300 hover:shadow-2xl">
   <CardContent>
     <div className="p-4 border rounded-xl border-purple-500">
@@ -1966,14 +2014,14 @@ export default function IndicadorCalculadora() {
           }
         ].map((section, index) => (
           <div key={index} className="grid grid-cols-5 gap-4 items-start">
-            {/* Título - Izquierda */}
+            {/* Título */}
             <div className="col-span-1 flex items-center justify-start h-full">
               <h3 className="font-semibold text-black text-left pl-2">
                 {section.concepto}
               </h3>
             </div>
             
-            {/* Contenido - Derecha */}
+            {/* Contenido  */}
             <div className={`col-span-4 bg-gray-50 p-4 rounded-lg border border-gray-200 ${section.minHeight}`}>
               {section.isList ? (
                 <ul className="list-disc pl-5 space-y-2">
