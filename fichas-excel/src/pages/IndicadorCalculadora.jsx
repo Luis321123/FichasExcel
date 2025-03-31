@@ -14,6 +14,23 @@ const indicadores = {
       { nombre: "Porcentaje del presupuesto institucional destinado a programas y acciones contra la DyVBG" }
     ]
   },
+  "Disciminación": {
+    lista: [
+      { nombre: "Existencia Accesibilidad Y Efectividad De Normativas"},
+      { nombre: "Número de reportes de discriminación dentro del entorno de la IES"},
+      { nombre: "Porcentaje de estudiantes, docentes y personal administrativo que reportan haber experimentado discriminación por género, etnia, discapacidad u orientación sexual" }
+    ]
+  
+  },
+"Prevención": {
+    lista: [
+      { nombre: "Conocimientos adquiridos en los procesos de formación sobre prevención"},
+      { nombre: "Disponibilidad de canales de denuncia accesibles y confidenciales" },
+      { nombre: "Existencia de políticas institucionales de no tolerancia hacia la violencia de género"},
+      { nombre: "Tasa de participación en programas de formación sobre género y DyVBGG.s"}
+    ]
+
+  },
   "Detección": {
     lista: [
       { nombre: "Disponibilidad de sistemas de alerta temprana, aplicaciones móviles y plataformas de denuncia digital"}, // Sin punto
@@ -26,21 +43,6 @@ const indicadores = {
       { nombre: "Porcentaje de personas de la comunidad academica con conocimiento sobre los protocolos de denuncia"},
       { nombre: "Tasa de denuncias formalizadas vs. casos identificados"},
       { nombre: "Tiempo promedio de respuesta ante denuncias de DyVBG"}
-    ]
-  },
-  "Disciminación": {
-    lista: [
-      { nombre: "Existencia Accesibilidad Y Efectividad De Normativas"},
-      { nombre: "Número de reportes de discriminación dentro del entorno de la IES"},
-      { nombre: "Porcentaje de estudiantes, docentes y personal administrativo que reportan haber experimentado discriminación por género, etnia, discapacidad u orientación sexual" }
-    ]
-  },
-  "Prevención": {
-    lista: [
-      { nombre: "Conocimientos adquiridos en los procesos de formación sobre prevención"},
-      { nombre: "Disponibilidad de canales de denuncia accesibles y confidenciales" },
-      { nombre: "Existencia de políticas institucionales de no tolerancia hacia la violencia de género"},
-      { nombre: "Tasa de participación en programas de formación sobre género y DyVBGG.s"}
     ]
   },
   "Atención": {
